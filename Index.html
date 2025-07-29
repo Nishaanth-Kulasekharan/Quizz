@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- L&T EduTech Logo -->
+    <div class="logo-container">
+        <img src="LOGO.png" alt="L&T EduTech" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="logo-text" style="display: none;">L&T EduTech</div>
+    </div>
+
+    <div class="container">
+        <!-- Login Screen -->
+        <div id="loginScreen" class="login-screen">
+            <h1>☁️ Cloud Computing Quiz</h1>
+            <p>Test your knowledge of cloud computing concepts!</p>
+            <input type="text" id="playerName" class="login-input" placeholder="Enter your name" maxlength="20">
+            <br>
+            <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="dashboard hidden">
+            <h2>Welcome, <span id="welcomeName"></span>!</h2>
+            <div class="quiz-info">
+                <h3>📚 Cloud Computing Challenge</h3>
+                <p>10 Questions • 4 Options Each • Test Your Skills</p>
+            </div>
+            <button class="start-btn" onclick="beginQuiz()">Begin Quiz</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="quiz-screen hidden">
+            <div class="quiz-header">
+                <div class="progress-counter">
+                    <span id="currentQuestion">1</span>/<span id="totalQuestions">10</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="timer-container">
+                    <div class="timer" id="timer">15</div>
+                </div>
+            </div>
+           
+            <div class="question-container">
+                <div class="question" id="questionText"></div>
+                <div class="answers-grid" id="answersGrid"></div>
+                <div id="showAnswersContainer" class="hidden" style="text-align:center; margin-top:10px;">
+                    <button onclick="showAllAnswers()" class="submit-btn">Show All Answers</button>
+                </div>
+
+                <div style="text-align: center;">
+                    <button class="submit-btn" id="submitBtn" onclick="submitAnswer()">Submit Answer</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Screen -->
+        <div id="feedbackScreen" class="feedback-screen hidden">
+            <div class="feedback-icon" id="feedbackIcon"></div>
+            <div class="feedback-title" id="feedbackTitle"></div>
+            <div class="feedback-explanation" id="feedbackExplanation"></div>
+            <button class="next-btn" onclick="nextQuestion()">Next Question</button>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="results-screen hidden">
+            <h2>🎉 Quiz Complete!</h2>
+            <div class="score-circle">
+                <span id="finalScore"></span>
+            </div>
+            <div class="results-details">
+                <h3>Your Performance</h3>
+                <p>Correct Answers: <span id="correctCount"></span>/10</p>
+                <p>Accuracy: <span id="accuracy"></span>%</p>
+                <p id="performanceMessage"></p>
+            </div>
+            <button class="restart-btn" onclick="showLeaderboard()">View Leaderboard</button>
+        </div>
+
+        <!-- Leaderboard Screen -->
+        <div id="leaderboardScreen" class="leaderboard-screen hidden">
+            <h2>🏆 Leaderboard</h2>
+            <ol id="leaderboardList" class="leaderboard-list"></ol>
+            <button class="restart-btn" onclick="restartQuiz()">Play Again</button>
+        </div>
+       
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
